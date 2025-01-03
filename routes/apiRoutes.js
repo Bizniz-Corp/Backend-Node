@@ -1,8 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const { getProducts, getTransactions } = require('../controllers/apiController');
+const {
+    getSalesTransaction,
+    getSalesTransactionAggregatByDayPure,
+    getForecast
+} = require('../controllers/apiController');
 
-router.get('/products', getProducts);
-router.get('/transactions', getTransactions);
+router.get('/sales-transactions/:umkmId', getSalesTransaction);
+
+router.get('/sales-transactions/aggregate-by-day/:umkmId', getSalesTransactionAggregatByDayPure);
+
+router.post('/forecast', getForecast);
 
 module.exports = router;
